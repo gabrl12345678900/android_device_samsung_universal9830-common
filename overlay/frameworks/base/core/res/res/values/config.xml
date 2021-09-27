@@ -1005,4 +1005,10 @@
          running in WAL mode.
          Choices are: FULL, NORMAL, OFF. -->
     <string name="db_wal_sync_mode" translatable="false">NORMAL</string>
+
+    <!-- Path to fast charging status file to detect whether an oem fast charger is active -->
+    <string name="config_oemFastChargerStatusPath" translatable="false">/sys/class/power_supply/battery/charging_type</string>
+
+    <!-- Expected value from fast charging status file  -->
+    <string name="config_oemFastChargerStatusValue" translatable="false">Fast</string>
 </resources>
