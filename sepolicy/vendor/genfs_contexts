@@ -72,9 +72,10 @@ genfscon sysfs /devices/virtual/input_booster/touch/tail           u:object_r:sy
 genfscon sysfs /devices/virtual/input_booster/touch/level          u:object_r:sysfs_input_booster_writable:s0
 
 # LCD
-genfscon sysfs /devices/platform/panel_drv@0/lcd/panel/SVC_OCTA       u:object_r:sysfs_lcd_writable:s0
-genfscon sysfs /devices/platform/panel_drv@0/lcd/panel/lcd_type       u:object_r:sysfs_lcd_writable:s0
-genfscon sysfs /devices/platform/panel_drv@0/lcd/panel/window_type    u:object_r:sysfs_lcd_writable:s0
+genfscon sysfs /devices/platform/panel_drv@0/lcd/panel/SVC_OCTA         u:object_r:sysfs_lcd_writable:s0
+genfscon sysfs /devices/platform/panel_drv@0/lcd/panel/lcd_type         u:object_r:sysfs_lcd_writable:s0
+genfscon sysfs /devices/platform/panel_drv@0/lcd/panel/window_type      u:object_r:sysfs_lcd_writable:s0
+genfscon sysfs /devices/platform/panel_drv@0/lcd/panel/mask_brightness  u:object_r:sysfs_lcd_writable:s0
 
 # MIF
 genfscon sysfs /devices/platform/17000010.devfreq_mif/devfreq/17000010.devfreq_mif/scaling_devfreq_min   u:object_r:sysfs_mif_writable:s0

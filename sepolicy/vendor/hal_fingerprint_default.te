@@ -6,3 +6,4 @@ allow hal_fingerprint_default {
 }:dir search;
 
 allow hal_fingerprint_default sec_efs_file:file r_file_perms;
+allow hal_fingerprint_default sysfs_lcd_writable:file { getattr open write };
