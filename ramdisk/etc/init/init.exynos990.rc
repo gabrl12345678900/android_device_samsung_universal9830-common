@@ -86,6 +86,8 @@ on init
     chown system system /dev/cpuset/cgroup.procs
     chmod 0664 /dev/cpuset/tasks
 
+    setprop vendor.powerhal.init 1
+
     # Setup cpu.shares to throttle background groups (bg ~ 5% sysbg ~ 5% dex2oat ~2.5%)
     write /dev/cpuctl/background/cpu.shares 1024
 
@@ -232,8 +234,8 @@ on init
     chmod 0664 /sys/power/cstate_control
 
     # CPUFreq
-    chown system radio /sys/power/cpufreq_min_limit
-    chown system radio /sys/power/cpufreq_max_limit
+    chown system system /sys/power/cpufreq_min_limit
+    chown system system /sys/power/cpufreq_max_limit
     chown system radio /sys/power/cpufreq_table
     chmod 0664 /sys/power/cpufreq_min_limit
     chmod 0664 /sys/power/cpufreq_max_limit
@@ -440,9 +442,6 @@ on init
 
     # Configuration to G2D blocking mode
     write /sys/module/g2d_task/parameters/block_on_contension 1
-
-    # for tsp cmd node
-    chown system radio /sys/class/sec/tsp/cmd
 
     # sdcard ramdump
     chown system system /sys/module/sec_debug/parameters/dump_sink
@@ -965,7 +964,7 @@ on boot
     chown system radio /sys/class/power_supply/battery/gps
     chown system radio /sys/class/power_supply/battery/wifi
     chown system radio /sys/class/power_supply/battery/lte
-    chown system radio /sys/class/power_supply/battery/lcd
+    chown system system /sys/class/power_supply/battery/lcd
     chown system radio /sys/class/power_supply/ps/status
     chmod 0664 /sys/class/power_supply/battery/wc_control
     chmod 0664 /sys/class/power_supply/battery/wc_control_cnt
@@ -1296,7 +1295,7 @@ on boot
     # ] Permissions for Grip Sensor
 
     # Permissions for Touchscreen
-    chown system radio /sys/class/sec/tsp/cmd
+    chown system system /sys/class/sec/tsp/cmd
     chown system system /sys/class/sec/tsp/input/enabled
     chmod 0660 /sys/class/sec/tsp/input/enabled
     chown system system /sys/class/sec/tsp/enabled
