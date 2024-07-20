@@ -57,7 +57,9 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider-service.samsung \
     libGrallocMapperCamera \
     libhwjpeg \
-    libsensorndkbridge
+    libsensorndkbridge \
+    libutilscallstack.vendor \
+    libhidlmemory.vendor
 
 # Cgroup and task_profiles
 PRODUCT_COPY_FILES += \
@@ -120,6 +122,7 @@ PRODUCT_PACKAGES += \
 
 # HIDL
 PRODUCT_PACKAGES += \
+    android.hidl.allocator@1.0.vendor \
     libhidltransport \
     libhidltransport.vendor \
     libhwbinder \
@@ -130,7 +133,7 @@ PRODUCT_PACKAGES += \
     vendor.lineage.health-service.default
 
 # Kernel
-PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := true
+PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := false
 PRODUCT_SET_DEBUGFS_RESTRICTIONS := true
 
 # Keylayouts
