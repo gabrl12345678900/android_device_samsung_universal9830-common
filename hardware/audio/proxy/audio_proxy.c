@@ -4905,7 +4905,7 @@ bool proxy_set_route(void *proxy, int ausage, int device, int modifier, bool set
 #endif
 
 #ifdef SUPPORT_STHAL_INTERFACE
-    if (routed_ausage == AUSAGE_CAMCORDER) {
+    if (routed_ausage == AUSAGE_CAMCORDER || routed_ausage == AUSAGE_RECORDING) {
         if (aproxy->sound_trigger_notify_ahal_record_status)
             aproxy->sound_trigger_notify_ahal_record_status(true);
     }
