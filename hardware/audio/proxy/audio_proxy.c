@@ -4901,10 +4901,13 @@ bool proxy_set_route(void *proxy, int ausage, int device, int modifier, bool set
     // HACK: Force quad mic for camcorder
     if (routed_device == DEVICE_MAIN_MIC && routed_ausage == AUSAGE_CAMCORDER) {
         routed_device = DEVICE_QUAD_MIC;
+    }
+#endif
+
 #ifdef SUPPORT_STHAL_INTERFACE
+    if (routed_ausage == AUSAGE_CAMCORDER) {
         if (aproxy->sound_trigger_notify_ahal_record_status)
             aproxy->sound_trigger_notify_ahal_record_status(true);
-#endif
     }
 #endif
 
