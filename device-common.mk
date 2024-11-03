@@ -148,7 +148,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     libcrypto-tm \
-    libcrypto_shim:64 \
+    libshim_crypto:64 \
     libssl-tm
 
 # Livedisplay

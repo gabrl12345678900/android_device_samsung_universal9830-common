@@ -14,7 +14,7 @@
 // limitations under the License.
 
 cc_library_shared {
-    name: "libcrypto_shim",
+    name: "libshim_crypto",
     enabled: false,
     target: {
         android_arm64: {
