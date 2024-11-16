@@ -150,9 +150,9 @@ PRODUCT_PACKAGES += \
     libkeymaster4_1support.vendor:64
 
 PRODUCT_PACKAGES += \
-    libcrypto-tm \
+    libcrypto-v33 \
     libshim_crypto:64 \
-    libssl-tm
+    libssl-v33
 
 # Livedisplay
 PRODUCT_PACKAGES += \
