@@ -73,12 +73,32 @@ function blob_fixup() {
         vendor/bin/vaultkeeperd|vendor/lib64/libvkservice.so)
             sed -i 's/ro\.factory\.factory_binary/ro.vendor.factory_binary\x00/g' "${2}"
             ;;
+        vendor/lib64/libbayergdccore.so)
+            "${PATCHELF}" --replace-needed libOpenCL.so libGLES_mali.so "${2}"
+            ;;
+        vendor/lib64/libnpuc_backend.so)
+            "${PATCHELF}" --add-needed libnpuc_cmdq.so "${2}"
+            "${PATCHELF}" --add-needed liblog.so "${2}"
+            ;;
+        vendor/lib64/libnpuc_common.so|vendor/lib64/libnpuc_controller.so|vendor/lib64/libnpuc_frontend.so|vendor/lib64/libnpuc_template.so)
+            "${PATCHELF}" --add-needed liblog.so "${2}"
+            ;;
+        vendor/lib64/libnpuc_graph.so)
+            "${PATCHELF}" --add-needed libnpuc_common.so "${2}"
+            ;;
+        vendor/lib64/libeden_ud_gpu.so)
+            "${PATCHELF}" --replace-needed libOpenCL.so libGLES_mali.so "${2}"
+            "${PATCHELF}" --add-needed libeden_ud_cpu.so "${2}"
+            ;;
         vendor/lib*/libsec-ril*.so)
             xxd -p -c0 "${2}" | sed "s/600e40f9820c805224008052e10315aa080040f9e30314aa/600e40f9820c805224008052e10315aa080040f9030080d2/g" | xxd -r -p > "${2}".patched
             mv "${2}".patched "${2}"
             ;;
         vendor/lib*/libsensorlistener.so)
             "${PATCHELF}" --add-needed libsensorndkbridge_shim.so "${2}"
+            ;;
+        vendor/lib64/libkeymaster_helper.so)
+            "${PATCHELF}" --replace-needed libcrypto.so libcrypto-v33.so "${2}"
             ;;
         vendor/lib*/libskeymaster4device.so)
             "${PATCHELF}" --replace-needed libcrypto.so libcrypto-v33.so "${2}"

@@ -94,15 +94,14 @@ vendor/firmware/mfc_fw.bin
 
 # GPS
 vendor/bin/hw/gps.sh
--vendor/bin/hw/gpsd
 -vendor/bin/hw/lhd
 -vendor/bin/hw/vendor.samsung.hardware.gnss@2.1-service
 vendor/etc/gnss/gps.cer
 vendor/etc/init/vendor.samsung.hardware.gnss@2.1-service.rc
 vendor/etc/sensor/lhd.conf
--vendor/lib64/hw/android.hardware.gnss@2.1-impl.so
--vendor/lib64/hw/flp.default.so
--vendor/lib64/hw/gps.default.so
+-vendor/lib64/hw/android.hardware.gnss@2.1-impl.so;FIX_SONAME
+-vendor/lib64/hw/flp.default.so;FIX_SONAME
+-vendor/lib64/hw/gps.default.so;FIX_SONAME
 -vendor/lib64/hw/vendor.samsung.hardware.gnss@2.1-impl.so
 -vendor/lib64/vendor.samsung.hardware.gnss@2.0.so
 -vendor/lib64/vendor.samsung.hardware.gnss@2.1.so
@@ -203,13 +202,13 @@ vendor/etc/init/init.vendor.rilcommon.rc
 vendor/etc/plmn_delta.bin
 vendor/etc/plmn_delta_attaio.bin
 vendor/etc/plmn_delta_usagsm.bin
--vendor/lib/libsecril-client.so;MODULE=libsecril-client.exynos990
+-vendor/lib/libsecril-client.so;MODULE_SUFFIX=_vendor
 -vendor/lib/libsemnativecarrierfeature.so
 -vendor/lib64/libengmode_client.so
 -vendor/lib64/libfloatingfeature.so
 -vendor/lib64/libril_sem.so
 -vendor/lib64/libsec-ril.so
--vendor/lib64/libsecril-client.so;MODULE=libsecril-client.exynos990
+-vendor/lib64/libsecril-client.so;MODULE_SUFFIX=_vendor
 -vendor/lib64/libSemDataProps.so
 -vendor/lib64/libsemnativecarrierfeature.so
 -vendor/lib64/libSemTelephonyProps.so
@@ -238,7 +237,7 @@ vendor/etc/libse-gto-hal.conf
 -vendor/bin/tzdaemon
 -vendor/bin/tzts_daemon
 -vendor/lib64/libteecl.so
--vendor/lib64/libuuid.so
+-vendor/lib64/libuuid.so;MODULE_SUFFIX=_vendor
 vendor/tee/00000000-0000-0000-0000-000000010081
 vendor/tee/00000000-0000-0000-0000-000000020081
 vendor/tee/00000000-0000-0000-0000-000048444350
